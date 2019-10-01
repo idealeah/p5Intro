@@ -6,6 +6,7 @@ function setup() {
   background(130, 205, 255);
   dotColor = color(255, 255, 255, 0);
   noStroke();
+  angleMode(DEGREES);
 
   //grass
   fill(80, 156, 50);
@@ -19,9 +20,12 @@ function setup() {
     rect(0, random(-10, 50), 25, 150);
 
     //tree leaves
-    for (i = 0; i < 100; i++) {
+    for (i = 0; i < 600; i++) {
+      push()
+      rotate(random(180));
       fill(random(180, 255), 159 - j*10, j*5);
-      ellipse(random(-50, 50 + j*4), random(-50, 50 + j*4), random(20, 50 + j*4), random(20, 50  + j*4));
+      ellipse(random(-70, 70 + j*3), random(-70, 70 + j*3), random(10, 20 + j*4), random(10, 20  + j*4));
+      pop();
     }
   pop();
   }
