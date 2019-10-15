@@ -3,7 +3,7 @@ let dotRad = 50;
 
 function setup() {
   createCanvas(640, 480);
-  dotColor = color(20, 190, 250);
+  dotColor = color(20, 255, 250);
   noStroke();
 }
 
@@ -18,4 +18,6 @@ function draw() {
     dotColor = color(r, g, b);
     dotRad = noise(millis() / 400) * 100;
   }
+
+  console.log(dotColor);
 }
