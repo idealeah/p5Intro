@@ -2,6 +2,7 @@
 let wind;
 // Circle position
 let position;
+//background color
 let backgroundColor;
 let red;
 
@@ -55,6 +56,7 @@ function draw() {
 function gotWeather(weather) {
 
   console.log(weather);
+
   // Get the angle (convert to radians)
   let angle = radians(Number(weather.wind.deg));
   // Get the wind speed
@@ -68,8 +70,9 @@ function gotWeather(weather) {
 
   // Make a vector
   wind = p5.Vector.fromAngle(angle);
-  console.log(wind, angle);
+  console.log(wind);
 
+  //set background color to temperature
   red = floor(map(weather.main.temp, 0, 100, 0, 255));
   backgroundColor = color(red, 255, 255);
 }
