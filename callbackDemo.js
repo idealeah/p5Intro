@@ -1,5 +1,9 @@
 let radius = 200;
 
+//set milliseconds to wait before allowing a new mouse action
+let wait = 800;
+let time;
+
 function setup() {
     createCanvas(500, 500);
     background(2, 0, 130);
@@ -8,10 +12,27 @@ function setup() {
     //call the sleep function in setup() so that it only happens once at the beginning
     //passing in numbers and the "saturday morning" function
     sleep(8, 5, saturdayMorning);
+
+    //initialize timing
+    time = millis();
 }
 
 function draw() {
 
+    //listen for mouse to be pressed
+    //test whether we've waited long enough
+    if (mouseIsPressed && millis() - time > wait) {
+
+        //randomize the background color
+        r = random(0, 255);
+        g = random(0, 255);
+        b = random(0, 255);
+        background(r, g, b);
+        drawSun();
+
+        //record the time when the mouse was last pressed
+        time = millis();
+    }
 }
 
 function sleep(hours, pillows, wakeup) {
@@ -51,16 +72,21 @@ function sleep(hours, pillows, wakeup) {
 function saturdayMorning(timeCalled) {
     console.log("saturday morning!");
 
-    //draw a bright blue background
+    //draw a bright blue background with a sun in front
     background(196, 247, 255);
+    drawSun();
+}
 
+
+function drawSun() {
     //draw white and yellow circles with soft edges
     for (i = 0; i < radius + 40; i++) {
         fill(255, 10);
         ellipse(width / 2, height / 2, i);
     }
-    for (i = 0; i < radius - 10; i += 2) {
-        fill(255, 209, 3, 10);
+    for (i = radius - 10; i > 0; i -= 2) {
+        let g = map(i, radius - 10, 0, 209, 100);
+        fill(255, g, 3, 10);
         ellipse(width / 2, height / 2, i);
     }
 }
