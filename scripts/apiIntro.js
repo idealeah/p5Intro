@@ -12,3 +12,4 @@ function changeBG() {
     let val = random(255);
     background(val);
 }
+
