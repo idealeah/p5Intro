@@ -80,11 +80,11 @@ function saturdayMorning(timeCalled) {
 
 function drawSun() {
     //draw white and yellow circles with soft edges
-    for (i = 0; i < radius + 40; i++) {
+    for (let n = 0; n < radius + 40; n++) {
         fill(255, 10);
         ellipse(width / 2, height / 2, i);
     }
-    for (i = radius - 10; i > 0; i -= 2) {
+    for (let i = radius - 10; i > 0; i -= 2) {
         let g = map(i, radius - 10, 0, 209, 100);
         fill(255, g, 3, 10);
         ellipse(width / 2, height / 2, i);

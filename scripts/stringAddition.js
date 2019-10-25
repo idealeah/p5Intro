@@ -1,5 +1,5 @@
 //set up some city strings
-let cities = ["London", "Nairobi", "Minneapolis", " Tokyo"];
+let cities = ["London", "Nairobi", "Minneapolis", " Tokyo", "New York"];
 let buttons = [];
 let weatherData;
 let temperature;
