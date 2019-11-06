@@ -1,6 +1,4 @@
-//let position;
-//let velocity;
-let radius = 10;
+let radiusArray = [];
 let positionArray = [];
 let velocityArray = [];
 numBalls = 10;
@@ -10,8 +8,10 @@ function setup() {
     for (let i = 0; i < numBalls; i++) {
         let position = createVector(random(0, width), random(0, height));
         let velocity = createVector(random(-5, 5), random(-5, 5));
+        let radius = random(20, 50);
         positionArray.push(position);
         velocityArray.push(velocity);
+        radiusArray.push(radius);
     }
 }
 
@@ -22,7 +22,7 @@ function draw() {
 
     for (let i = 0; i < numBalls; i++) {
         fill(0);
-        ellipse(positionArray[i].x, positionArray[i].y, radius);
+        ellipse(positionArray[i].x, positionArray[i].y, radiusArray[i]);
         positionArray[i].add(velocityArray[i]);
         if (positionArray[i].x > width || positionArray[i].x < 0) {
             velocityArray[i].x = -velocityArray[i].x;
